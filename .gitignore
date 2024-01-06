@@ -1,0 +1,6 @@
+*.json
+*.csv
+*.gzip
+*.xlsx
+.ipynb_checkpoints
+
