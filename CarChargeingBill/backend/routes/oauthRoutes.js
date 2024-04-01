@@ -22,11 +22,22 @@ passport.serializeUser(function(user, cb) {
 passport.deserializeUser(function(obj, cb) {
     cb(null, obj);
 });
+const ensureAuthenticated = (req, res, next) => {
+  console.log('1: ensureAuthenticated')
+  if (req.isAuthenticated()) {
+    console.log('2: isAuthenticated')
+    return next();
+  }
+  console.log('3: Do Authentication')
+  res.redirect('/oauth/google');
+};
+
 
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }))
 router.get('/google/callback', passport.authenticate('google', { scope: ['profile', 'email'] }), oauthController.googleCallback)
 
 module.exports = {
     router,
-    passport
+    passport,
+    ensureAuthenticated
 };
