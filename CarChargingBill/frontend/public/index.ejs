@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Website</title>
+    <link rel="stylesheet" href="/public/styles.css">
+    <script src="/src/index.js"></script>
+</head>
+<body>
+    <header>
+        <!-- Header content -->
+        <h1>Car charging bill website</h1>
+    </header>
+    <nav>
+        <!-- Navigation links -->
+        <ul>
+            <li><a href="/" class="nav-link" data-page="home">Home</a></li>
+            <li><a href="#" class="nav-link" data-page="about">About</a></li>
+            <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main id="main-content">
+        <!-- Main content will be dynamically replaced -->
+        <%- include(`${content}`) %>
+    </main>
+    <footer>
+        <!-- Footer content -->
+        <p>© 2023 Juhani Kauppi</p>
+    </footer>
+</body>
+</html>

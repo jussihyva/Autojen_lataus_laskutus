@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 
 function getCarParkingPlaces(req, res) {
-    const jsonFilePath =  path.join(__dirname, '..', '..', 'python/data/Chargeing_point_name.json')
+    const jsonFilePath =  path.join(__dirname, '../../python/data/Charging_point_name.json')
     console.log(`getCarParkingPlaces: ${req}`)
     fs.readFile(jsonFilePath, 'utf8', (err, data) => {
         if (err) {
