@@ -13,6 +13,7 @@ passport.use(new GoogleStrategy(
       // In this example, the user's Google profile is supplied as the profile.
       // Normally, you would associate the Google account with a user record in your database.
       // Here, we're just passing the profile provided by Google to the callback.
+      console.log(profile)
       return cb(null, profile);
     }
 ));
@@ -34,7 +35,7 @@ const ensureAuthenticated = (req, res, next) => {
 
 
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }))
-router.get('/google/callback', passport.authenticate('google', { scope: ['profile', 'email'] }), oauthController.googleCallback)
+router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/google' }), oauthController.googleCallback)
 
 module.exports = {
     router,

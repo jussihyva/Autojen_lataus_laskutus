@@ -43,10 +43,11 @@ def __create_graph(path_spot_price_alv0: str):
 
 def __get_and_save_spot_price(path_spot_price_alv0: str):
     client = EntsoePandasClient(api_key="{:s}".format(os.environ["ENTSOE_API_KEY"]))
-    start = pd.Timestamp('20240201', tz='UTC')
-    end = pd.Timestamp('20240329', tz='UTC')
+    start = pd.Timestamp('20220101', tz='Europe/Helsinki')
+    end = pd.Timestamp('20241231', tz='Europe/Helsinki')
     country_code = 'FI'
     df: pd.DataFrame = client.query_day_ahead_prices(country_code, start=start, end=end)
+    print(df.dtypes)
     df.to_csv(path_spot_price_alv0)
 
 def main():

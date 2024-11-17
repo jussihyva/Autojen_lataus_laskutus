@@ -2,7 +2,8 @@ from datetime import timedelta
 import pandas as pd
 
 def print_dst(date_time) -> bool:
-    date_time = pd.to_datetime(date_time, utc=True).tz_convert('Europe/Helsinki')
+#     date_time = pd.to_datetime(date_time, utc=True).tz_convert('Europe/Helsinki')
+    date_time = pd.to_datetime(date_time, utc=True)
     if type(date_time) not in [type(pd.NaT), type(None)]:
     #     print(date_time.dst())
         offset_current = date_time.utcoffset()
